@@ -1,0 +1,3 @@
+[submodule "welcome-to-github"]
+	path = welcome-to-github
+	url = https://github.com/dmytro-revak/welcome-to-github
