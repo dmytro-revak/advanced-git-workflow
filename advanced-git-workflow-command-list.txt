@@ -1,0 +1,137 @@
+Task 1 "Work with branches"
+
+Create the "advanced-git-workflow" repository through github.com
+Start Git Bash
+$ cd E:
+$ git clone https://github.com/dmytro-revak/advanced-git-workflow.git
+$ cd advanced-git-workflow
+$ echo "Git advanced hometask" > readme.md
+$ git status
+$ git add .
+$ git commit -m "Create readme file"
+$ git push origin master
+$ git branch architecture
+$ git checkout architecture
+$ mkdir assets
+$ mkdir uploads
+$ echo "<h1> Hello world </h1>" > index.html
+$ git add .
+$ git commit -m "Create assets and uploads directories and file index.html"
+$ touch assets/all.js
+$ touch assets/css.js
+$ git status
+$ git add .
+$ git commit -m "create all js and css files"
+$ git push origin architecture
+$ touch uploads/test.txt
+$ git status
+$ git add .
+$ git commit -m "create test file"
+$ git push origin architecture
+$ echo "/uploads/*" > .gitignore
+$ git status
+$ git add .
+$ git commit -m "add gitignore"
+$ git push origin architecture
+$ git checkout master
+$ git merge architecture
+$ git branch --delete architecture
+$ git push origin master
+$ git push origin --delete architecture
+
+Task 2 "Rebase"
+
+$ pwd
+$ cd E:/advanced-git-workflow
+$ git branch testbranch
+$ touch text.txt
+$ touch test.html
+$ git status
+$ git add .
+$ git commit -m "add test & text files"
+$ echo "Hi" > hello.txt
+$ git add .
+$ git commit -m "add hello file"
+$ git status
+$ git checkout testbranch
+$ git rebase master
+$ touch rebasefile.txt
+$ git status
+$ git add .
+$ git commit -m "add rebase file"
+$ git checkout master
+$ git merge testbranch
+$ git branch -d testbranch
+$ git push origin
+
+Task 3 "Tag"
+
+$ pwd
+$ cd E:/advanced-git-workflow
+$ touch testtag.txt
+$ git status
+$ git add .
+$ git commit -m "add texttag file"
+$ touch tags.html
+$ git status
+$ git add .
+$ git commit -m "add tags file"
+$ git tag -a v1.0 -m "my version 1.0"
+$ git push origin master
+$ git push origin v1.0
+
+Task 4 "Submodule"
+
+$ pwd
+$ cd E:/advanced-git-workflow
+$ git submodule add https://github.com/dmytro-revak/welcome-to-github
+$ git status
+$ git add .
+$ git commit -m "add my first submodule"
+$ git status
+$ git push origin master
+
+Task 5 "Git Pages"
+
+$ pwd
+$ cd E:/advanced-git-workflow
+$ git branch gh-pages
+$ git checkout gh-pages
+$ echo "<h1> My gh-pages file </h1>" > index.html
+$ git status
+$ git add .
+$ git commit -m "add gh-pages file"
+$ git push origin gh-pages
+go to https://dmytro-revak.github.io/advanced-git-workflow/
+It's all right
+$ echo "<h2> Secon message </h2>" > index.html
+$ git status
+$ git add .
+$ git commit -m "change gh-pages file"
+$ git push origin gh-pages
+go to https://dmytro-revak.github.io/advanced-git-workflow/
+It's all right again
+
+Task 6 "Conflict"
+
+$ pwd
+$ cd E:/advanced-git-workflow
+$ echo "Conflict file" > file.txt
+$ git status
+$ git add .
+$ git commit -m "add confllickt file"
+$ git branch conflickt
+$ git checkout conflickt
+$ echo "Conflict changes" > file.txt
+$ git status
+$ git add .
+$ git commit -m "change conflict file"
+$ git checkout master
+$ git merge conflict
+I've got the conflict 
+$ git merge --abort
+I've removed the conflict
+$ git add .
+$ git commit -m "change conflict file"
+$ git merge conflict
+It's all right (Merge made by the 'recursive' strategy.)
